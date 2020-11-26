@@ -6,6 +6,9 @@ public class Person : MonoBehaviour
 {
     public string personName;
     public Transform dishPosition;
+    public Table table;
+
+    private bool hasPlate = false;
 
     void Start()
     {
@@ -14,5 +17,15 @@ public class Person : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public bool HasPlate()
+    {
+        return hasPlate;
+    }
+
+    public void SetHasPlate(bool value)
+    {
+        hasPlate = value;
     }
 }

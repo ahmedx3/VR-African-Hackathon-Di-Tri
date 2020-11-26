@@ -2,11 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Table : MonoBehaviour
+public class Restaurant : MonoBehaviour
 {
-    public Person[] persons;
-
-    public int tableNumber;
+    public Table[] tables;
 
     void Start()
     {
@@ -15,16 +13,21 @@ public class Table : MonoBehaviour
 
     void Update()
     {
-        
+        List<Person> persons = GetEmptyHandedPersons();
+
+        foreach (var item in persons)
+        {
+            Debug.Log(item.personName);
+        }
     }
 
     public List<Person> GetEmptyHandedPersons()
     {
         List<Person> emptyPersons = new List<Person>();
 
-        foreach (var person in persons)
+        foreach (var table in tables)
         {
-            if (!person.HasPlate())
+            foreach (var person in table.GetEmptyHandedPersons())
             {
                 emptyPersons.Add(person);
             }

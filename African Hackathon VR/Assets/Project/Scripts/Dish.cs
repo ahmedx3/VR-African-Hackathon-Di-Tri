@@ -8,7 +8,7 @@ public class Dish : MonoBehaviour
     public Person personToBeServed;
     bool isPlateEmpty = false;
 
-    private float MAX_EAT_TIME = 10;
+    public float MAX_EAT_TIME = 5;
 
     public float MAX_CORRECT_DISTANCE = 0.5f;
 
@@ -31,11 +31,14 @@ public class Dish : MonoBehaviour
     {
         float distanceToPerson = Vector3.Distance(transform.position, personToBeServed.dishPosition.position);
 
-        Debug.Log("distanceToPerson : "  +  distanceToPerson);
-
         if (distanceToPerson < MAX_CORRECT_DISTANCE)
         {
             EatTheDish();
+            personToBeServed.SetHasPlate(true);
+        }
+        else
+        {
+            personToBeServed.SetHasPlate(false);
         }
     }
 
