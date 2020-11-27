@@ -5,14 +5,22 @@ using UnityEngine;
 public class FingerPrintedObject : MonoBehaviour
 {
     const int MAX_NUMBER_OF_HANDS = 6;
-    int startIndex = 0;
-    public List<Transform> handPos = new List<Transform>(MAX_NUMBER_OF_HANDS);
+    int currPosIndex = 0;
+    List<Transform> handPos = new List<Transform>();
 
     public Material objectMaterial;
 
     private void Start()
     {
         objectMaterial = GetComponent<MeshRenderer>().material;
+
+        handPos.Clear();
+        for (int i = 0; i < MAX_NUMBER_OF_HANDS; i++)
+        {
+            GameObject go = new GameObject("transform refrence " + i + ".");
+            go.transform.parent = transform;
+            handPos.Add(go.transform);
+        }
     }
 
     private void Update()
@@ -21,7 +29,7 @@ public class FingerPrintedObject : MonoBehaviour
         Vector4[] HandContactFwd = new Vector4[6];
         Vector4[] HandContactRight = new Vector4[6];
 
-        for (int i = 0; i < handPos.Count; i++)
+        for (int i = 0; i < MAX_NUMBER_OF_HANDS; i++)
         {
             HandContact[i] = handPos[i].position;
             HandContactFwd[i] = handPos[i].forward;
@@ -31,5 +39,12 @@ public class FingerPrintedObject : MonoBehaviour
         objectMaterial.SetVectorArray("_HandContact", HandContact);
         objectMaterial.SetVectorArray("_HandContactFwd", HandContactFwd);
         objectMaterial.SetVectorArray("_HandContactRight", HandContactRight);
+    }
+
+    public void SetNewContact(Vector3 contactPos)
+    {
+        handPos[currPosIndex].position = contactPos;
+        currPosIndex++;
+        currPosIndex %= MAX_NUMBER_OF_HANDS;
     }
 }
