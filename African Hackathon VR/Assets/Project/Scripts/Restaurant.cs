@@ -14,11 +14,6 @@ public class Restaurant : MonoBehaviour
     void Update()
     {
         List<Person> persons = GetEmptyHandedPersons();
-
-        foreach (var item in persons)
-        {
-            Debug.Log(item.personName);
-        }
     }
 
     public List<Person> GetEmptyHandedPersons()

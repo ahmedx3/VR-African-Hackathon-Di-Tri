@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,6 +10,9 @@ public class Person : MonoBehaviour
     public Table table;
 
     private bool hasPlate = false;
+    private bool hasOrdered = false;
+
+    public float MAX_CORRECT_DISTANCE = 0.5f;
 
     void Start()
     {
@@ -16,7 +20,21 @@ public class Person : MonoBehaviour
 
     void Update()
     {
-        
+        CheckHasPlate();    
+    }
+
+    private void CheckHasPlate()
+    {
+        foreach (var dish in GameObject.FindGameObjectsWithTag("Dish"))
+        {
+            if (Vector3.Distance(dishPosition.position,dish.transform.position) < MAX_CORRECT_DISTANCE)
+            {
+                hasPlate = true;
+                return;
+            }
+        }
+
+        hasPlate = false;
     }
 
     public bool HasPlate()
@@ -27,5 +45,15 @@ public class Person : MonoBehaviour
     public void SetHasPlate(bool value)
     {
         hasPlate = value;
+    }
+
+    public bool HasOrdered()
+    {
+        return hasOrdered;
+    }
+
+    public void SetHasOrdered(bool value)
+    {
+        hasOrdered = value;
     }
 }

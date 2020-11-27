@@ -24,6 +24,7 @@ public class Dish : MonoBehaviour
         if (isPlateEmpty)
         {
            this.transform.Find("Gfx").transform.Find("Cube").GetComponent<Renderer>().material.SetColor("_Color", Color.red);
+           personToBeServed.SetHasOrdered(false);
         }
     }
 
@@ -34,12 +35,8 @@ public class Dish : MonoBehaviour
         if (distanceToPerson < MAX_CORRECT_DISTANCE)
         {
             EatTheDish();
-            personToBeServed.SetHasPlate(true);
         }
-        else
-        {
-            personToBeServed.SetHasPlate(false);
-        }
+
     }
 
     private void EatTheDish()

@@ -24,7 +24,7 @@ public class Table : MonoBehaviour
 
         foreach (var person in persons)
         {
-            if (!person.HasPlate())
+            if (!person.HasPlate() && !person.HasOrdered())
             {
                 emptyPersons.Add(person);
             }
