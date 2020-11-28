@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Table : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class Table : MonoBehaviour
 
     void Start()
     {
-        
+        this.transform.Find("Canvas").gameObject.transform.Find("Text").GetComponent<Text>().text = tableNumber.ToString();
     }
 
     void Update()

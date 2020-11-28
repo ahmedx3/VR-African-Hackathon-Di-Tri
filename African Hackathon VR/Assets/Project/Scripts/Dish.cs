@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Dish : MonoBehaviour
 {
@@ -14,7 +15,8 @@ public class Dish : MonoBehaviour
 
     void Start()
     {
-        
+        this.transform.Find("Canvas").gameObject.transform.Find("PN").GetComponent<Text>().text = personToBeServed.name;
+        this.transform.Find("Canvas").gameObject.transform.Find("TN").GetComponent<Text>().text = personToBeServed.table.tableNumber.ToString();
     }
 
     void Update()
