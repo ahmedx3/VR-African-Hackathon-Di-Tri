@@ -13,7 +13,10 @@ public class Person : MonoBehaviour
     private bool hasPlate = false;
     private bool hasOrdered = false;
 
-    public float MAX_CORRECT_DISTANCE = 0.5f;
+    public float MAX_CORRECT_DISTANCE = 0.8f;
+
+    public GameObject player;
+    int damping = 12;
 
     void Start()
     {
@@ -22,7 +25,11 @@ public class Person : MonoBehaviour
 
     void Update()
     {
-        CheckHasPlate();    
+        CheckHasPlate();
+        var lookPos = this.transform.Find("Canvas").gameObject.transform.position - player.transform.position;
+        lookPos.y = 0;
+        var rotation = Quaternion.LookRotation(lookPos);
+        this.transform.Find("Canvas").gameObject.transform.rotation = Quaternion.Slerp(this.transform.Find("Canvas").gameObject.transform.rotation, rotation, Time.deltaTime * damping);
     }
 
     private void CheckHasPlate()

@@ -1,0 +1,16 @@
+{
+  "source": "Unity",
+  "applications": [
+    {
+      "app_key": "application.generated.unity.africanhackathonvr.exe",
+      "launch_type": "url",
+      "url": "steam://launch/",
+      "action_manifest_path": "D:\\Personal_Projects\\VR-African-Hackathon-Di-Tri\\African Hackathon VR\\Assets\\StreamingAssets\\SteamVR\\actions.json",
+      "strings": {
+        "en_us": {
+          "name": "African Hackathon VR [Testing]"
+        }
+      }
+    }
+  ]
+}

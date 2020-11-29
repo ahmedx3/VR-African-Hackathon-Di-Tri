@@ -9,7 +9,7 @@ public class FoodPlateGeneration : MonoBehaviour
 
     public List<GenerationPosition> dishSpawnPos = new List<GenerationPosition>();
 
-    public float MAX_PLATE_GENERATION_TIME = 5;
+    public float MAX_PLATE_GENERATION_TIME = 15;
 
     float plateGenerationTime;
     int MAX_DISHES;
@@ -44,8 +44,9 @@ public class FoodPlateGeneration : MonoBehaviour
                 {
                     if (!dishPos.isOccupied)
                     {
-                        dishGO.GetComponent<Dish>().personToBeServed = people[0];
-                        people[0].SetHasOrdered(true);
+                        int randomIndex = UnityEngine.Random.Range(0, people.Count);
+                        dishGO.GetComponent<Dish>().personToBeServed = people[randomIndex];
+                        people[randomIndex].SetHasOrdered(true);
                         Instantiate(dishGO, dishPos.transform);
                         break;
                     }

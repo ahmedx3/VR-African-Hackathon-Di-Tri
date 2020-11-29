@@ -9,6 +9,9 @@ public class Table : MonoBehaviour
 
     public int tableNumber;
 
+    public GameObject player;
+    int damping = 12;
+
     void Start()
     {
         this.transform.Find("Canvas").gameObject.transform.Find("Text").GetComponent<Text>().text = tableNumber.ToString();
@@ -16,7 +19,10 @@ public class Table : MonoBehaviour
 
     void Update()
     {
-        
+        var lookPos = this.transform.Find("Canvas").gameObject.transform.position - player.transform.position;
+        lookPos.y = 0;
+        var rotation = Quaternion.LookRotation(lookPos);
+        this.transform.Find("Canvas").gameObject.transform.rotation = Quaternion.Slerp(this.transform.Find("Canvas").gameObject.transform.rotation, rotation, Time.deltaTime * damping);
     }
 
     public List<Person> GetEmptyHandedPersons()
