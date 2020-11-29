@@ -39,6 +39,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 3, y: 3}
         m_Offset: {x: 0, y: 0}
+    - _HandTex:
+        m_Texture: {fileID: 2800000, guid: 34b22cf8156171d43b9d7dbc4619f62e, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 2800000, guid: c53af3e3c43127f42864784f0c87d01f, type: 3}
         m_Scale: {x: 3, y: 3}
@@ -63,6 +67,7 @@ Material:
     - _GlossMapScale: 0.25
     - _Glossiness: 0.5
     - _GlossyReflections: 1
+    - _MaxDistance: 0.7
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
@@ -71,7 +76,10 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _UVSec: 0
+    - _UV_Devisor: 1.5
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _HandColor: {r: 0, g: 1, b: 0, a: 1}
+    - _UV_Offset: {r: 0.55, g: 0.5, b: 0, a: 0}

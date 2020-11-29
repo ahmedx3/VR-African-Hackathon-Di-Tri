@@ -29,13 +29,13 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _Glossiness: 0
-    - _MaxDistance: 0.71
+    - _MaxDistance: 0.7
     - _Metallic: 0
-    - _UV_Devisor: 1.52
+    - _UV_Devisor: 1.5
     m_Colors:
     - _Color: {r: 0, g: 0, b: 1, a: 1}
     - _HandColor: {r: 0, g: 5.3403134, b: 0, a: 1}
     - _HandContact: {r: 0, g: 0.25, b: 0, a: 0}
     - _HandContactFwd: {r: 1, g: 0.25, b: 0, a: 0}
     - _HandContactRight: {r: 0, g: 0.25, b: 1, a: 0}
-    - _UV_Offset: {r: 0.56, g: 0.51, b: 0, a: 0}
+    - _UV_Offset: {r: 0.55, g: 0.5, b: 0, a: 0}

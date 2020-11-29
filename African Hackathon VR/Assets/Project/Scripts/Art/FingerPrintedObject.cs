@@ -8,7 +8,7 @@ public class FingerPrintedObject : MonoBehaviour
     int currPosIndex = 0;
     List<Transform> handPos = new List<Transform>();
 
-    public Material objectMaterial;
+    Material objectMaterial;
 
     private void Start()
     {
