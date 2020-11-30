@@ -43,3 +43,5 @@ Thumbs.db
 # vs code
 .vs/
 Outer Assets/
+Builds/Test_Builds/
+Builds/Hanitizer/
