@@ -25,21 +25,22 @@ public class Dish : MonoBehaviour
         tableNumber.text = personToBeServed.table.tableNumber.ToString();
     }
 
+    bool hasScored = false;
     void Update()
     {
         ServeTheDish();
 
         if (isPlateEmpty)
         {
-            //this.transform.Find("Gfx").transform.Find("Cube").GetComponent<Renderer>().material.SetColor("_Color", Color.red);
+            if (!hasScored)
+            {
+                ScoreSystem.score += 45;
+                hasScored = true;
+            }
+           this.transform.Find("Gfx").transform.Find("Slice").gameObject.SetActive(false);
+           this.transform.Find("Gfx").transform.Find("Plate").transform.Find("Canvas").transform.Find("Panel").GetComponent<Image>().color = new Color(1, 0, 0, 0.3f);
            personToBeServed.SetHasOrdered(false);
-           Destroy(this.gameObject);
         }
-
-        //var lookPos = this.transform.Find("Canvas").gameObject.transform.position - player.transform.position;
-        //lookPos.y = 0;
-        //var rotation = Quaternion.LookRotation(lookPos);
-        //this.transform.Find("Canvas").gameObject.transform.rotation = Quaternion.Slerp(this.transform.Find("Canvas").gameObject.transform.rotation, rotation, Time.deltaTime * damping);
     }
 
     private void ServeTheDish()
